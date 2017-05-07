@@ -1,0 +1,1 @@
+lame -b 320 test3.wav test3.mp3

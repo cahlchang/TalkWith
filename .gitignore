@@ -4,3 +4,8 @@
 py_analysis/out/
 py_analysis/res/
 py_analysis/__pycache__/
+processing/core/
+processing/java/
+processing/lib/
+processing/modes/
+processing/tools/

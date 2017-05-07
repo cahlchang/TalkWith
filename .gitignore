@@ -3,3 +3,4 @@
 *.exe
 py_analysis/out/
 py_analysis/res/
+py_analysis/__pycache__/

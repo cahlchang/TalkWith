@@ -28,9 +28,9 @@ void SetDebugMode() {
                 cnt = 0;
         }
         sp = sn;
-        fill(0);
+        canvas.fill(0);
         text("fps = " + cntDisp, width - 150, 80);
-        fill(0);
+        canvas.fill(0);
         text("time = " + int(GetTimeNow()), width - 150, 120);
 }
 
@@ -40,6 +40,4 @@ void SetText ()
         // String[] fontList = PFont.list();
         // int a = 20;
         // printArray(fontList);
-
-
 }				

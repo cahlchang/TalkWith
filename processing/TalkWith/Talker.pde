@@ -6,8 +6,7 @@ List<PGraphics> lstImageDefault = new ArrayList<PGraphics>();
 List<List> lstImageVowel = new ArrayList<List>();
 PGraphics imgNow;
 
-void CreateSampleImage()
-{
+void CreateSampleImage(){
         lstImageDefault.add(createImageSymbol("base_default.1.png", 1));
         lstImageDefault.add(createImageSymbol("base_default.0.png", 1));
 
@@ -18,12 +17,12 @@ void CreateSampleImage()
         lstImageVowel.add(createGraphicsList(new String[]{"base_o.0.png", "base_o.1.png"}));
 
         for (PGraphics pg : lstImageDefault) {
-                image(pg, 0, height - pg.height);
+                canvas.image(pg, 0, height - pg.height);
         }
     
         for (List<PGraphics> list : lstImageVowel) {
                 for (PGraphics pg : list) {
-                        image(pg, 0, height - pg.height);
+                        canvas.image(pg, 0, height - pg.height);
                 }
         }
 
@@ -39,7 +38,7 @@ void TalkEventHandler() {
                         imgNow = lstImageDefault.get( iPos );
                 }
 
-                image(imgNow, 0, height - imgNow.height);
+                canvas.image(imgNow, 0, height - imgNow.height);
 	
                 if (0 != iPos - lstImageDefault.size())
                         iPos++;
@@ -51,8 +50,8 @@ void TalkEventHandler() {
                         iVowelPre = iVowelNow;
                 }
 	
-                image(imgNow, 0, height - imgNow.height);
-	
+                canvas.image(imgNow, 0, height - imgNow.height);
+                
                 if (0 != iPos - 2)
                         iPos++;
 

@@ -2,7 +2,7 @@ PGraphics createImageSymbol(String nameImage, float nScale) {
         PImage pi = loadImage(nameImage);
         pi.resize(int(pi.width * nScale), int(pi.height * nScale));
 
-        PGraphics pg = createGraphics(pi.width, pi.height);
+        PGraphics pg = createGraphics(pi.width, pi.height, JAVA2D);
         pg.beginDraw();
         pg.image(pi, 0, 0);
         pg.endDraw();
@@ -53,7 +53,7 @@ PGraphics getReadyImage(String[] aryPath) {
         int nsh = 600;
         int nsw = int(piOrg.width * nScale);
     
-        PGraphics pg = createGraphics(nsw, nsh);
+        PGraphics pg = createGraphics(nsw, nsh, JAVA2D);
         pg.beginDraw();
     
         for (PImage pi : lstImage) {

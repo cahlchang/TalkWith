@@ -6,19 +6,24 @@ AudioPlayer player;
 
 int widthStage = 1200;
 int heightStage = 800;
+PGraphics canvas;
 
-void setup()
-{
+void setup() {
         size(1200, 800);
         frameRate(30);
 
+        noFill();
+        smooth();
         viewMode();
 }
 
 Boolean isView = false;
 
-void viewMode()
-{
+void viewMode() {
+        canvas = createGraphics(widthStage, heightStage, JAVA2D);
+        canvas.beginDraw();
+        canvas.background(110,110,110,50);
+        
         isView = true;
         minim = new Minim(this);
         CreateSampleImage();
@@ -29,31 +34,24 @@ void viewMode()
         player.play();
 }
 
-void readyMode()
-{
+void readyMode() {
         CreateReadyImage();
 }
 
-void draw()
-{
-        background(240);
-
-        if (! isView)
-                return;
-
+void draw() {
+        //backgroud view
+        background(0,0,0);
+        canvas.beginDraw();
+        canvas.background(110,110,110,50);
+        
         TimebaseEventHandler();
         TalkEventHandler();
         SetDebugMode();
-        // if (mousePressed == true)
-        // {
-        // 		 image(p_img_on, 0, 0);
-        // 		 //
-        // 		 // img_on.tint(255,0);
-        // }
-        // else
-        // {
-        // 		 image(p_img_off, 0, 0);
-        // 		 // img_off.tint(255,0);
+        
+        canvas.endDraw();
+        image(canvas, 0, 0);
+        canvas.save("frames/" + nf(frameCount, 6, 0) + ".png");
 
-        saveFrame("frames/######.tif");
+        // alpha channel not work...
+        // saveFrame("frames/######.png");
 }
